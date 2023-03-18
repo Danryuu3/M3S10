@@ -8,11 +8,12 @@ public class Player : MonoBehaviour
     private float horizontal;
     private float velocidad = 5f;
     private bool saltar = true;
+    public Animator animator;
     public GameObject panel;
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -20,39 +21,46 @@ public class Player : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         transform.position += Vector3.right * horizontal * velocidad * Time.deltaTime;
+        if(horizontal!=0){
+            animator.SetBool("Caminando", true);
+        }else{
+            animator.SetBool("Caminando", false);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (saltar)
             {
                 saltar = false; 
+                animator.SetBool("Saltando", true);
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 8f), ForceMode2D.Impulse);
 
             }
         }
+        
 
-            //if (horizontal > 0)
-            //        {
-            //
-            //         
-            //transform.localScale = new Vector3(1f, 1f, 1f);
-            //
-            //          
-            //}
-            //
-            //if (horizontal < 0)
-            //        {
-            //
-            //            
-            //transform.localScale = new Vector3(-1f, -1f, -1f);
-            //
-            //         
-            //}
+           
         }
-
+    private void FixedUpdate() {
+        movimiento();
+    }
+    private void movimiento(){
+        if (horizontal > 0)
+            {
+                transform.localScale = new Vector3(4f, 4f, 4f);
+            }
+            
+            if (horizontal < 0)
+            {
+            transform.localScale = new Vector3(-4f, 4f, 4f);
+            
+                    
+            }
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Plataform"))
         {
+            animator.SetBool("Saltando", false);
             
             saltar = true;
         }
