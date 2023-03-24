@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prueba3.unity
     guid: 6d8fa5b70a9b41a4baee26d04ff00eaf
+  - enabled: 1
+    path: Assets/Nivel1.unity
+    guid: 119b45b1127a09748b654964af6a8e9c
   m_configObjects: {}

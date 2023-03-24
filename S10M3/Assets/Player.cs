@@ -64,6 +64,12 @@ public class Player : MonoBehaviour
             
             saltar = true;
         }
+         if (collision.collider.CompareTag("Plataform"))
+        {
+            animator.SetBool("Saltando", false);
+            
+            saltar = true;
+        }
 
         if (collision.collider.CompareTag("Enemigo"))
         {
@@ -75,6 +81,11 @@ public class Player : MonoBehaviour
         {
 
             panel.SetActive(true);
+        }
+        if (collision.collider.CompareTag("SiguienteNivel"))
+        {
+
+            SceneManager.LoadScene(1);
         }
     }
 }
