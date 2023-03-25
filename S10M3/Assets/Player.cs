@@ -71,13 +71,37 @@ public class Player : MonoBehaviour
             saltar = true;
         }
 
-        if (collision.collider.CompareTag("Enemigo"))
+        if (collision.collider.CompareTag("Enemigo0"))
         {
 
             SceneManager.LoadScene(0);
         }
 
+        if (collision.collider.CompareTag("Enemigo1"))
+        {
+
+            SceneManager.LoadScene(1);
+        }
+
+        if (collision.collider.CompareTag("Enemigo2"))
+        {
+
+            SceneManager.LoadScene(2);
+        }
+
         if (collision.collider.CompareTag("Final"))
+        {
+            SceneManager.LoadScene(1);
+            
+        }
+
+        if (collision.collider.CompareTag("Final1"))
+        {
+
+            SceneManager.LoadScene(2);
+        }
+
+        if (collision.collider.CompareTag("Final2"))
         {
 
             panel.SetActive(true);

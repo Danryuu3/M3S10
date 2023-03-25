@@ -4,10 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< Updated upstream
   - Final
   - Plataform
   - Enemigo
   - SiguienteNivel
+=======
+  - Plataform
+  - Enemigo
+  - Final
+  - Enemigo0
+  - Enemigo1
+  - Enemigo2
+  - Final1
+  - Final2
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
